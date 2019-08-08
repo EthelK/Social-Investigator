@@ -1,40 +1,25 @@
-# Social-Investigator
-Investigates the presence of entities on social media 
+This project creates and updates a Google Sheet with relevant tweets and a basic sentiment analysis of this tweet.
 
+**The problem**
 
-The **Social Investigator** tool is a collection of multiple libraries and codes that creates, all together, a precise yet complete 
-overview of an individual or entity on social media. 
+I was monitoring a few companies in the context of a larger project and needed to get an update of their activity and what the public thought about them. While I was reading the news and checking sometimes social media, I needed to find a more efficient way to see and analysis what was going on.
 
-This is a exploratory approach, there are a lot of things to be added and the objective is to find a creative and efficient way to 
-depict sentiment and stats around the entity/person (and even more later). 
+**The solution**
 
-This process have different components: 
+I created several pieces of code to analysis online newspapers and social media. This particular code here scraps Twitter and returns structured information about the latest tweets.
 
-## **The Source** 
-Which social media provide the right key to access usable and relevant information? 
-Can we regroup information across social media platform and, if so, how could we create a consistant way to do it? 
-_At this stage, the only social media used is Twitter_
+**The risks**
 
-## **The Collection** 
-Two subcomponents here: 
-  * How do we search for particular entities or persons? Is there a set of steps that we can create in advance to assure the consistency of our queries 
-  * How do we store our the data once collected? 
-  __at this stage, the data is collected through the Google Sheet API to get an idea of how the search work in real-time. A stream listener is in progress__ 
-  
-## **The Analysis - part I** 
-Analysis can take into account stats about the entities but that's not the funniest part. I am moving towards network analysis but that 
-would require a more important set collected --> Reason why the stream listener is prioritized at this stage. 
+I couldn't scrap tweets that were older than 2 weeks
+the keywords I used were basics and therefore, combined with the noise on the social platform, I could not trust 100% the results
 
-## **The Analysis - part II** 
-Sentiment analysis and NLP: At this stage, two NLP libraries are applied to the tweets for comparison. They haven't been leveraged and 
-there could be better libraries or way to apply this. 
+**The tools**
 
-## **The Predictions** 
-How could we predict the reactions of social media depending on metadata/content/pattern? How could we define those reactions? Haven't been
-prioritized yet. 
+I used several libraries:
 
-## **Ethics** 
-This project also aims to understand the level of privacy those social media offers and how can we do these research above and respect 
-the other entities and people connected to those? How can we rethink social media scraping? This is not a component on its own but a 
-philosophy that will flow through the process of the Social Investigator 
+(Aylien)[aylien.com] They are a company specialised in NLP product. They provide an API with a limit of calls per day. Their NLP library gave me a more precise results than the TwitterSearch Library as well as a percentage of confidence.
 
+Google Sheet
+I used the Google Sheet API because I am a big fan of observing my results directly in an Excel when I can to give me a clear results and also to share them quickly with others. This API set up has changed a little bit since I have written this code but the concept is the same. More information can be found (here)[https://developers.google.com/sheets/api/]
+
+TwitterSearch There is a lot of API wrapper for Twitte out there but I like this one in particular because of the clarity of the documentation and the functions provided. (This library)[https://pypi.org/project/TwitterSearch/] has been created by the Technical University of Munich.
